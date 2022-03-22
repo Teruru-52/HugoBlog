@@ -9,6 +9,11 @@ categories:
   - "技術資料"
 ---
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
 [keriさんの記事](https://www.kerislab.jp/posts/2018-04-29-accel-designer1/)を参考に曲線加速を設計しました.
 
 <div>
@@ -99,8 +104,3 @@ $$u_{ff}=\omega(t)P^{-1}(s)=\omega(t)\dfrac{3.2262s^2+3.10658s+1}{0.11081}=\dfra
 
 #### 2自由度制御
 $$u_{\omega}=u_{ff}+u_{fb}$$
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
