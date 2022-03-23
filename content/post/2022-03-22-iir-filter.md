@@ -8,6 +8,13 @@ categories:
   - "技術資料"
 ---
 
+{{< rawhtml >}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+{{< /rawhtml >}}
+
 低域のIIRフィルタを設計し、ジャイロセンサに適用します。ここではまずプロトタイプフィルタを考え、双1次z変換によって目的のフィルタを求める手法を用います。
 
 ### 1. 設計仕様を与える
@@ -20,8 +27,3 @@ $$t_m$$
 
 ### 4. 双1次z変換で目的のフィルタを求める
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
-</script>
