@@ -7,7 +7,15 @@ tags:
   - "制御工学"
 categories:
   - "技術資料"
+thumbnail:
+  src: "img/curve_acceleration.jpg"
 ---
+
+曲線加速を用いて超信地旋回の設計をしました。
+
+<!--more-->
+
+[なめらかな加速の設計](https://www.kerislab.jp/posts/2018-04-29-accel-designer1/)を参考にしました。
 
 {{< rawhtml >}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -16,7 +24,7 @@ categories:
 </script>
 {{< /rawhtml >}}
 
-[なめらかな加速の設計](https://www.kerislab.jp/posts/2018-04-29-accel-designer1/)を参考にしました。
+
 
 $\dfrac{\pi}{2}$だけ超信地旋回する際の曲線加速の設計に適用します。
 

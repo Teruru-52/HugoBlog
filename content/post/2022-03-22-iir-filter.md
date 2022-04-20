@@ -2,11 +2,18 @@
 title: "IIRフィルタの設計"
 date: 2022-03-22T03:48:06+09:00
 draft: false
+description: 低域のIIRフィルタを設計し、ジャイロセンサに適用します。ここではまずプロトタイプフィルタを考え、双1次z変換によって目的のディジタルフィルタを求める手法を用います。
 tags:
   - "ディジタル信号処理"
 categories:
   - "技術資料"
+thumbnail:
+  src: "img/iir_filter.jpg"
 ---
+
+低域のIIRフィルタを設計し、ジャイロセンサに適用します。ここではまずプロトタイプフィルタを考え、双1次z変換によって目的のディジタルフィルタを求める手法を用います。
+
+<!--more-->
 
 {{< rawhtml >}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -14,8 +21,6 @@ categories:
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 {{< /rawhtml >}}
-
-低域のIIRフィルタを設計し、ジャイロセンサに適用します。ここではまずプロトタイプフィルタを考え、双1次z変換によって目的のディジタルフィルタを求める手法を用います。
 
 ### 1. 設計仕様を与える
 カットオフ周波数 $f_c=100\ [\text{Hz}]$、阻止域端周波数 $f_s=300\ [\text{Hz}]$、阻止域減衰量 $A_s=30\ [\text{dB}]$とします。
