@@ -92,6 +92,7 @@ $$H(z)=H_a(s)|_{s=2\frac{1-z^{-1}}{1+z^{-1}}}=\dfrac{0.0181+0.0543z^{-1}+0.0543z
 
 振幅特性は下図の通りです。
 ![](https://i.imgur.com/qrJNXX7.jpg)
+
 {{< figure src="img/2022-03-22-iir-filter/iir_filter.jpg" >}}
 
 カットオフ周波数に対応する$\omega_c=0.2\pi\approx0.628\ [\text{rad}]$における減衰は$3\ [\text{dB}]$となっています。
