@@ -8,7 +8,7 @@ tags:
 categories:
   - "技術資料"
 thumbnail:
-  src: "img/curve_acceleration.jpg"
+  src: "posts/2022-03-22-rotation-curved-acceleration/curve_acceleration.jpg"
 ---
 
 曲線加速を用いて超信地旋回の設計をしました。

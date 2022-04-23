@@ -8,7 +8,7 @@ tags:
 categories:
   - "技術資料"
 thumbnail:
-  src: "img/identification.jpg"
+  src: "posts/2022-04-20-m-sequence/identification.jpg"
 ---
 
 M系列信号を用いて回転方向のシステム同定をします。
