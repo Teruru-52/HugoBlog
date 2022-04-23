@@ -35,7 +35,7 @@ MATLABを用いてM系列信号を生成しました。シフトレジスタの�
 ### 2. M系列信号入力の応答を得る
 M系列信号1周期分の応答を得ました。サンプリング周期は$0.02[s]$です。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/duZe7dhA7FQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{{< youtube duZe7dhA7FQ >}}
 
 ![](https://i.imgur.com/eswxLee.jpg)
 ### 3. システム同定をする
