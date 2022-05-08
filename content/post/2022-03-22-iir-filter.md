@@ -93,8 +93,6 @@ $$H(z)=H_a(s)|_{s=2\frac{1-z^{-1}}{1+z^{-1}}}=\dfrac{0.0181+0.0543z^{-1}+0.0543z
 振幅特性は下図の通りです。
 ![](https://i.imgur.com/qrJNXX7.jpg)
 
-{{< postfig src="iir_filter.jpg" width="360px">}}
-
 カットオフ周波数に対応する$\omega_c=0.2\pi\approx0.628\ [\text{rad}]$における減衰は$3\ [\text{dB}]$となっています。
 
 阻止域端周波数に対応する$\omega_s=0.6\pi\approx1.885\ [\text{rad}]$における減衰量は$A_s=30\ [\text{dB}]$よりも大きいので問題ないです。一致しないのはフィルタ次数$N$を切り上げたためだと考えられます。
