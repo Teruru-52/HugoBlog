@@ -43,7 +43,7 @@ categories:
 ピボット点周りのボディの運動方程式は次の通りです。
 
 $$
-(I_b + m_wl_w^2) \ddot\theta_b = (m_bl_b + m_wl_w)g\ \text{sin}\theta_b - (\tau - c_w\theta_b) - c_b\dot\theta_b
+(I_b + m_wl_w^2) \ddot\theta_b = (m_bl_b + m_wl_w)g\ \text{sin}\theta_b - (\tau - c_w\theta_w) - c_b\dot\theta_b
 $$
 
 ホイール回転軸周りのホイールの運動方程式は次の通りです。
