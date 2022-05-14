@@ -253,7 +253,7 @@ P\bar A\left[
 \right]=0
 $$
 
-が成り立ち，0でない$A_3$が存在して$P\bar A = \bar A_3P$と書けます。ここで，$z_2=P\bar x$とおくと
+が成り立ち，0でない$\bar A_3$が存在して$P\bar A = \bar A_3P$と書けます。ここで，$z_2=P\bar x$とおくと
 
 $$
 \dot z_2 = P\bar A\bar x + P\bar B\bar u = P\bar A\bar x = \bar A_3P\bar x = \bar A_3z_2
