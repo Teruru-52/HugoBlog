@@ -40,7 +40,7 @@ Fusion360で設計し，3Dプリンタで印刷しました。
 ![](https://i.imgur.com/gV5mnZE.jpg)
 
 ### 3. アルゴリズム
-Two-Phase-Algorithmを用いています．以下を参考にしています．
+Two-Phase-Algorithmを用いています。以下を参考にしています。
 
 [ルービックキューブを解くプログラムを書いてみよう(前編:キューブを操る実装)](https://qiita.com/7y2n/items/a840e44dba77b1859352)
 
@@ -50,13 +50,13 @@ Two-Phase-Algorithmを用いています．以下を参考にしています．
 [ルービックキューブを解くプログラムを書いてみよう(後編:状態のindex化, Two-Phase-Algorithm)](https://qiita.com/7y2n/items/55abb991a45ade2afa28)
 
 ### 4. プログラム
-Pythonで書いています．動作は以下のようにしています．
+Pythonで書いています。動作は以下のようにしています。
 
 1. ランダムに数手回す
 1. Two-Phase-Algorithmで解を求める
 1. 求めた解に従って回す
 
 ### 5. 結果
-RaspberryPiにSSH接続して実行します．この動画ではランダム18手，解21手となっています．
+RaspberryPiにSSH接続して実行します。この動画ではランダム18手，解21手となっています。
 
 {{< youtube ko1t7ebo6Wc >}}
