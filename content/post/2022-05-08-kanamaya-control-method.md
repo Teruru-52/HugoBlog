@@ -233,7 +233,15 @@ Kanayama Control Methodで求めた速度入力$v,\omega$を目標値として2�
 
 ### 4. 目標軌道を生成する
 [MATLABでスラローム軌道生成](https://www.kerislab.jp/posts/2017-09-04-matlab-trajectory/)を参考にします．
-今後追記します。
+
+目標軌道はMATLABで生成し，マイコン内で更新をしない静的軌道とします．
+
+![](https://i.imgur.com/KWwgbNv.jpg)
+目標の並進速度$v_r=0.506\ \text{m/s}$とし，$x_r,y_r,\theta_r,\omega_r$を$1\ \text{ms}$ごとに更新します．
 
 ### 5. 実装する
-今後追記します。
+ゲイン$K_x,K_y,K_\theta$の調整が難しく，Kanayama Controllerから生成される目標速度$q$が振動しているようになってしまいました．
+
+ですが，ある程度は追従できているので，並進方向の速度追従とKanayama Controllerのゲインを修正すれば良くなりそうです．
+
+![](https://i.imgur.com/cd346Ru.jpg)
