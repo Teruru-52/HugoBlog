@@ -297,5 +297,5 @@ $$
 ![](https://i.imgur.com/GZj7Ncv.png)
 
 ### 3. 実践する
-今後追記します。
+[プロペラを用いた倒立振子の製作](https://teruru-52.github.io/post/2023-06-03-propeller-pendulum/)の姿勢推定に用いました。
 
