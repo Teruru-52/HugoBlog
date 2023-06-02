@@ -8,6 +8,8 @@ tags:
   - "倒立振子"
 categories:
   - "技術資料"
+thumbnail:
+  src: "posts/2022-07-16-3d-inverted-pendulum/inverted_pendulum.jpg"
 ---
 
 3次元フライホイール倒立振子を製作しました。
