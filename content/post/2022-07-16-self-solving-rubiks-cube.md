@@ -8,8 +8,8 @@ tags:
   - "RASPBERRY PI"
 categories:
   - "技術資料"
-# thumbnail:
-#   src: ""
+thumbnail:
+  src: "posts/2022-07-16-self-solving-rubiks-cube/self_solving_robot.jpg"
 ---
 
 Two-Phase-Algorithmを用いて自動でルービックキューブを揃えるロボットを製作します。
