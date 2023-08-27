@@ -56,7 +56,7 @@ categories:
 |  $g_b$  |  ボディ座標系での重力加速度ベクトル |
 |  $g$  |  慣性座標系での重力加速度（スカラー） |
 
-オイラー角の運動方程式は次の通りです。
+ZYXオイラー角の運動方程式は次の通りです。
 
 {{< rawhtml >}}
 $$
@@ -344,7 +344,51 @@ $\text{rank}V=7<8$より不可制御な次元が1次元あり，可制御正準�
 そのため，例えばボディの角速度とホイールの角速度の両方を同時に0にするようなことはできません。
 
 ### 5. 姿勢推定
-[相補フィルタでオイラー角を推定する](https://teruru-52.github.io/post/2022-05-13-complimentary-filter-euler/)で推定します。
+6つのセンサでそれぞれ測定した加速度から，重力ベクトルを推定します。
+
+それぞれのセンサの位置ベクトルを$p_i (i=1,2,...,6)$とします。
+測定した加速度は，センサが位置する点の加速度ベクトル$\ddot{p}_i$と重力ベクトル$^Bg$の和で表されます。
+
+$$^Bm_i=\ ^B\ddot{p}_i+\ ^Bg$$
+
+ここで，
+
+$$^B\ddot{p}_i=\ ^B_IR\ ^I\ddot{p}_i=\ ^B_IR\ ^I_B\ddot{R}\ ^Bp_i$$
+
+であり，$\tilde{R}=\ ^B_IR\ ^I_B\ddot{R}$とすると，
+
+$$^Bm_i=\tilde{R}\ ^Bp_i+\ ^Bg$$
+
+と表せます。この加速度の測定値$m_i$から，重力ベクトル$^Bg$を最小二乗推定します。
+
+{{< rawhtml >}}
+$$
+\left[
+\begin{matrix}
+    ^Bm_1&    ^Bm_2&    ^Bm_3&    ^Bm_4&    ^Bm_5&    ^Bm_6\\
+\end{matrix}
+\right]=
+\left[
+\begin{matrix}
+    ^Bg & \tilde{R}
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+    1 & 1 & 1 & 1 & 1 & 1\\
+    ^Bp_1 & ^Bp_2 & ^Bp_3 & ^Bp_4 & ^Bp_5 & ^Bp_6
+\end{matrix}
+\right]
+$$
+{{< /rawhtml >}}
+
+$$M=QP$$
+
+$Q$の推定値$\hat{Q}$を疑似逆行列$P^\dagger$を用いて求めると，$\hat{Q}(:,1)$が推定したい重力ベクトルに対応します。
+
+$$\hat{Q}=MP^\dagger=MP^\text{T}(PP^\text{T})^{-1}$$
+
+推定した重力ベクトルから，[相補フィルタでオイラー角を推定する](https://teruru-52.github.io/post/2022-05-13-complimentary-filter-euler/)でオイラー角を推定します。
 
 ### 6. 実践する
 今後追記します。

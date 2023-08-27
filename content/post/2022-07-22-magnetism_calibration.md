@@ -8,7 +8,7 @@ tags:
 categories:
   - "技術資料"
 thumbnail:
-    src: "posts/2022-07-22-magnetism_calibration/sphere.jpg"
+    src: "posts/2022-07-22-magnetism_calibration/mag_calib.jpg"
 ---
 
 センサから取得する地磁気のキャリブレーションをしました。
@@ -79,7 +79,7 @@ w = M^\dagger I=(M^\text{T}M)^{-1}M^\text{T}I
 $$
 とすることで楕円体を近似することができます。
 
-![](https://i.imgur.com/nHxCWyI.jpg)
+{{< figure src="/posts/2022-07-22-magnetism_calibration/mag_least_square.jpg" >}}
 
 ### 2. 回転・移動・伸縮によって単位球とする
 参考にした記事の通りに，回転・移動・伸縮をします。
@@ -90,7 +90,7 @@ $$
 
 センサで取得した地磁気$x=(m_x, m_y,m_z)$に対して，回転$P^\text{T}$，移動$\dfrac{1}{2}\Lambda^{-1}(BP)^\text{T}$，伸縮$S$を施します。
 
-![](https://i.imgur.com/KvFMI2f.jpg)
+{{< figure src="/posts/2022-07-22-magnetism_calibration/mag_calib.jpg" >}}
 
 地磁気センサのキャリブレーションができました。
 地磁気を用いたMadgwick Filter，EKFといった姿勢推定をする際に活用します。
