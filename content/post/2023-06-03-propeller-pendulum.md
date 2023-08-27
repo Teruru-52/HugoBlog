@@ -35,6 +35,7 @@ thumbnail:
 また，目的は倒立なので頂点にかかる力は考える必要がありません。
 そのため，この方向最適化は倒立には不適切ですが，倒立に要するトルクは十分足りているので良しとしています。
 
+{{< figure src="/posts/2023-06-03-propeller-pendulum/torque_space.jpg" title="Torque Set" >}}
 
 ### 2. 機体作成
 |    |       |
