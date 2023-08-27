@@ -1,8 +1,8 @@
 ---
-title: "2次元フライホイール倒立振子の製作"
+title: "状態空間表現を用いた1次元倒立振子"
 date: 2022-05-12T23:32:37+09:00
 draft: false
-description: 2次元フライホイール倒立振子を製作します。
+description: 状態空間表現を用いた1次元フライホイール倒立振子の制御を説明します。
 tags:
   - "制御工学"
   - "倒立振子"
@@ -10,9 +10,12 @@ categories:
   - "技術資料"
 ---
 
-2次元フライホイール倒立振子を製作します。
+状態空間表現を用いた，1次元フライホイール倒立振子の制御を説明します。
 
 <!--more-->
+
+[3次元フライホイール倒立振子](https://teruru-52.github.io/post/2022-05-14-3d-inverted-pendulum2/)での辺倒立の制御に用います。
+3次元での理論を低次元化したものになります．
 
 {{< rawhtml >}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -172,12 +175,12 @@ $$
 {{< /rawhtml >}}
 
 ### 3. 最適制御
-LQRの最適制御を設計します。
+離散時間LQRの最適制御を設計します。
 
 $$u_k = -K_dx_k$$
 
-### 4. $\theta_b, \dot\theta_b$の測定
-今後追記します。
+### 4. $\theta_b, \dot\theta_b$の推定
+3次元倒立振子での姿勢推定を用います。ピッチ角$\beta$が$\theta_b$に対応します。
 
-### 5. 実機製作
+### 5. 実機実験
 今後追記します。

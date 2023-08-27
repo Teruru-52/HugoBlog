@@ -1,8 +1,8 @@
 ---
-title: "3次元フライホイール倒立振子の製作"
+title: "PD制御を用いた3次元倒立振子の製作"
 date: 2022-07-16T20:46:42+09:00
 draft: false
-description: 3次元フライホイール倒立振子を製作しました。
+description: PD制御を用いた3次元フライホイール倒立振子を製作しました。
 tags:
   - "制御工学"
   - "倒立振子"
@@ -12,7 +12,7 @@ thumbnail:
   src: "posts/2022-07-16-3d-inverted-pendulum/inverted_pendulum.jpg"
 ---
 
-3次元フライホイール倒立振子を製作しました。
+PD制御を用いた3次元フライホイール倒立振子を製作しました。
 
 <!--more-->
 

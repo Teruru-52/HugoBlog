@@ -1,5 +1,5 @@
 ---
-title: "自動でルービックキューブを揃えるロボットの製作"
+title: "ルービックキューブを揃えるロボットの製作"
 date: 2022-07-16T19:09:07+09:00
 draft: false
 description: Two-Phase-Algorithmを用いて自動でルービックキューブを揃えるロボットを製作します。
@@ -12,7 +12,7 @@ thumbnail:
   src: "posts/2022-07-16-self-solving-rubiks-cube/self_solving_robot.jpg"
 ---
 
-Two-Phase-Algorithmを用いて自動でルービックキューブを揃えるロボットを製作します。
+Two-Phase-Algorithmを用いて自動でルービックキューブを揃えるロボットを製作しました。
 
 <!--more-->
 
@@ -26,9 +26,16 @@ Two-Phase-Algorithmを用いて自動でルービックキューブを揃える�
 ### 1. 機体設計
 Fusion360で設計し，3Dプリンタで印刷しました。
 
+ルービックキューブの各面の中心ブロックを設計したものに取り替えています。
+
+#### version1
 ![](https://i.imgur.com/hFCp8qg.png)
 
-ルービックキューブの各面の中心ブロックを設計したものに取り替えています。
+#### version2
+{{< figure src="/posts/2022-07-16-self-solving-rubiks-cube/self_solving_robot_v2.png" >}} 
+
+#### version3
+
 ### 2. 回路
 |    |       |
 | ---- |----|
@@ -37,7 +44,11 @@ Fusion360で設計し，3Dプリンタで印刷しました。
 |  バイポーラステッピングモータ　|   SM-42BYG011 × 6　|
 |  電源  |  ACアダプタ (12V，5A)  |
 
+#### version1, 2
 ![](https://i.imgur.com/gV5mnZE.jpg)
+
+#### version3
+{{< figure src="/posts/2022-07-16-self-solving-rubiks-cube/circuit_v3.jpg" >}} 
 
 ### 3. アルゴリズム
 Two-Phase-Algorithmを用いています。以下を参考にしています。
@@ -57,6 +68,6 @@ Pythonで書いています。動作は以下のようにしています。
 1. 求めた解に従って回す
 
 ### 5. 結果
-RaspberryPiにSSH接続して実行します。この動画ではランダム18手，解21手となっています。
+RaspberryPi4にSSH接続して実行します。この動画ではランダム18手，解21手となっています。
 
 {{< youtube ko1t7ebo6Wc >}}
