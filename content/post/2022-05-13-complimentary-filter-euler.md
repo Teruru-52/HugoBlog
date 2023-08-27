@@ -24,7 +24,9 @@ categories:
 {{< /rawhtml >}}
 
 ### 1. 加速度からオイラー角を求める
-[EKFでオイラー角を推定する](https://teruru-52.github.io/post/2022-05-10-ekf-euler/)と同様です。ロール角$\phi$とピッチ角$\theta$は
+<!-- [EKFでオイラー角を推定する](https://teruru-52.github.io/post/2022-05-10-ekf-euler/)と同様です。 -->
+
+ロール角$\phi$とピッチ角$\theta$は
 
 $$
 \phi = \text{tan}^{-1}\dfrac{a_y}{a_z},\quad \theta = \text{tan}^{-1}\dfrac{a_x}{\sqrt{a_y^2 + a_z^2}}
@@ -33,7 +35,7 @@ $$
 となります。
 
 ### 2. ジャイロからオイラー角速度を求める
-[EKFでオイラー角を推定する](https://teruru-52.github.io/post/2022-05-10-ekf-euler/)と同様です。
+<!-- [EKFでオイラー角を推定する](https://teruru-52.github.io/post/2022-05-10-ekf-euler/)と同様です。 -->
 
 オイラー角の運動方程式は次のようになります。
 
