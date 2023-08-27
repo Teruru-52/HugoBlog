@@ -180,7 +180,7 @@ $$
 $$u_k = -K_dx_k$$
 
 ### 4. $\theta_b, \dot\theta_b$の推定
-3次元倒立振子での姿勢推定を用います。ピッチ角$\beta$が$\theta_b$に対応します。
+[3次元倒立振子での姿勢推定](https://teruru-52.github.io/post/2022-05-14-3d-inverted-pendulum2/#:~:text=%E3%81%A7%E3%81%8D%E3%81%BE%E3%81%9B%E3%82%93%E3%80%82-,5.%20%E5%A7%BF%E5%8B%A2%E6%8E%A8%E5%AE%9A,-%E4%BB%8A%E5%BE%8C%E8%BF%BD%E8%A8%98%E3%81%97)を用います。ピッチ角$\theta$あるいはロール角$\phi$が$\theta_b$に対応します。
 
 ### 5. 実機実験
 今後追記します。
