@@ -2,7 +2,7 @@
 title: "地磁気センサのキャリブレーションをする"
 date: 2022-07-22T03:49:43+09:00
 draft: false
-description: MPU-9250における地磁気のキャリブレーションをしました。
+description: センサから取得する地磁気のキャリブレーションをしました。
 tags:
   - "IMU"
 categories:
@@ -11,7 +11,8 @@ thumbnail:
     src: "posts/2022-07-22-magnetism_calibration/sphere.jpg"
 ---
 
-MPU-9250における地磁気のキャリブレーションをしました。
+センサから取得する地磁気のキャリブレーションをしました。
+今回，センサにはMPU9250を用いました。
 
 <!--more-->
 
@@ -86,6 +87,9 @@ $$
 X = S\bigg(P^\text{T}x+\dfrac{1}{2}\Lambda^{-1}(BP)^\text{T}\bigg)
 $$
 
+センサで取得した地磁気$x=(m_x, m_y,m_z)$に対して，回転$P^\text{T}$，移動$\dfrac{1}{2}\Lambda^{-1}(BP)^\text{T}$，伸縮$S$を施します。
+
 ![](https://i.imgur.com/KvFMI2f.jpg)
 
-地磁気センサのキャリブレーションができました。地磁気センサを用いたMadgwick Filterを実装してみようと思います。
+地磁気センサのキャリブレーションができました。
+地磁気を用いたMadgwick Filter，EKFといった姿勢推定をする際に活用します。
