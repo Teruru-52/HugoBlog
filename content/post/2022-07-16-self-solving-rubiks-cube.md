@@ -33,8 +33,12 @@ Fusion360で設計し，3Dプリンタで印刷しました。
 
 #### version2
 {{< figure src="/posts/2022-07-16-self-solving-rubiks-cube/self_solving_robot_v2.png" >}} 
+version2ではルービックキューブの取り外しを容易にしました。
 
 #### version3
+{{< figure src="/posts/2022-07-16-self-solving-rubiks-cube/self_solving_robot_v3.png" >}} 
+version3ではカメラの取り付け位置を変更しました。
+また，外光の反射を低減するために，表面がマット加工されているGANのルービックキューブにしました。
 
 ### 2. 回路
 |    |       |
@@ -49,6 +53,8 @@ Fusion360で設計し，3Dプリンタで印刷しました。
 
 #### version3
 {{< figure src="/posts/2022-07-16-self-solving-rubiks-cube/circuit_v3.jpg" >}} 
+version3では基板を発注して作成しました。
+カメラ用のLEDの明るさやモータをPWMで制御できるようにしています。
 
 ### 3. アルゴリズム
 Two-Phase-Algorithmを用いています。以下を参考にしています。
