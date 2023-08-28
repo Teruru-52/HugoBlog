@@ -26,13 +26,28 @@ PD制御を用いた3次元フライホイール倒立振子を製作しまし�
 ### 1. 回路
 [HomeMadeGarbage](https://shop.homemadegarbage.com/product-category/hmg/)さんのものを使わせていただいています。
 
+|    |       |
+| ---- |----|
+|  マイコン  | ESP32 |
+|  IMU  |  MPU-6050 |
+|  モータ |   BLDC × 3　|
+|  電源  |  ACアダプタ 24V 5A  |
+
+BLDCはAmazonで購入したものです。入力のPWMにおよそ比例して速度が出力されます。
+プログラムも販売されていますが，一部のピン設定を除きC++で1から書きました。
+
 ### 2. 機体
 [ReM-RC](https://www.youtube.com/watch?v=AJQZFHJzwt4&list=LL&index=10&t=263s)さんのものを使わせていただいています。
 
 ### 3. 制御
-HomeMadeGarbageさんとReM-RCさんの倒立振子とはセンサーの位置を変えて，倒立時にセンサの$xy$平面が地面と水平になるようにしています。
-
+#### 3.1 PD制御
 倒立状態からの$x$軸周りの傾き角とその角速度を$\theta_x,\omega_x$とし，$y$軸についても同様に$\theta_y,\omega_y$とします。
+
+HomeMadeGarbageさんとReM-RCさんの倒立振子とはセンサーの位置を変えて，頂点で倒立時にセンサの$xy$平面が地面と水平($\theta_x=0$，$\theta_y=0$)になるようにしています。
+
+まずは，このセンサ座標系における入力$u$を考えます。
+PD制御に加え，入力の積分値をフィードバックします。
+入力の積分値を考慮することで，ホイールの速度が大きくなりすぎないようにしています。
 
 $$u_x(k)=k_1\hat\theta_x(k)+k_2\hat\omega_x(k)+k_3\sum_{i=0}^{k-1}u_x(i)$$
 
@@ -42,11 +57,12 @@ $$u_z(k) = 0$$
 
 $k_1,k_2,k_3$はゲインです。姿勢角$\hat\theta_x,\hat\theta_y$とその角速度$\hat\omega_x,\hat\omega_y$は定常カルマンフィルタによって推定しています。とりあえず倒立できればいいので，$u_z=0$としています。
 
-この入力$u_x,u_y,u_z$を3つのホイールに分配します。センサ座標$xyz$での入力$u_x,u_y,u_z$をホイール座標$x'y'z'$での各ホイールの入力$u_{x'},u_{y'},u_{z'}$に分配します。
+#### 3.2 入力分配
+入力$u_x,u_y,u_z$を3つのホイールに分配します。センサ座標系$xyz$での入力$u_x,u_y,u_z$をホイール座標$x'y'z'$での各ホイールの入力$u^\prime_{x},u^\prime_{y},u^\prime_{z}$に分配します。
 
 {{< rawhtml >}}
 $$
-u_xx+u_yy+u_zz=u_{x`}x'+u_{y'}y'+u_{z'}z'
+u_xx+u_yy+u_zz=u^\prime_{x}x'+u^\prime_{y}y'+u^\prime_{z}z'
 $$
 {{< /rawhtml >}}
 
@@ -69,20 +85,134 @@ u_{x'} = \dfrac{2}{\sqrt6}u_x-\dfrac{1}{\sqrt3}u_z
 $$
 
 $$
-u_{y'} = -\dfrac{1}{\sqrt6}u_x+\dfrac{1}{\sqrt2}u_y-\dfrac{1}{\sqrt3}u_z
+u^\prime_{y} = -\dfrac{1}{\sqrt6}u_x+\dfrac{1}{\sqrt2}u_y-\dfrac{1}{\sqrt3}u_z
 $$
 
 $$
-u_{z'} = -\dfrac{1}{\sqrt6}u_x-\dfrac{1}{\sqrt2}u_y-\dfrac{1}{\sqrt3}u_z
+u^\prime_{z} = -\dfrac{1}{\sqrt6}u_x-\dfrac{1}{\sqrt2}u_y-\dfrac{1}{\sqrt3}u_z
 $$
 
 としてホイールに入力します。
 制御周期$10\ \text{ms}$程度で制御しています。
 
-### 4. 結果
+### 4. Kalman Filter
+用いたIMUであるMPU-6050は6軸センサなので，加速度と角速度を取得できます。
+
+まず，加速度から直接$\theta_x,\ \theta_y$を求めます。
+
+{{< rawhtml >}}
+$$
+\theta_x=\tan^{-1}\dfrac{a_y}{\sqrt{a_x^2 + a_z^2}},\quad \theta_y= \tan^{-1}\dfrac{a_x}{\sqrt{a_y^2 + a_z^2}}
+$$
+{{< /rawhtml >}}
+
+差分方程式は，角速度と組み合わせて以下のようになります。
+
+$$
+\theta_{k+1}=\theta_k+(\omega_k-\omega_{\text{bias},k})\Delta{t},\quad \omega_{\text{bias},k+1}=\omega_{\text{bias},k}
+$$
+
+状態方程式で表現すると，
+
+{{< rawhtml >}}
+$$
+\left[
+\begin{matrix}
+    \theta_{k+1}\\
+    \omega_{\text{bias},k+1}
+\end{matrix}
+\right]=
+\left[
+\begin{matrix}
+    1 & -\Delta{t}\\
+    0 & 1
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+    \theta_{k}\\
+    \omega_{\text{bias},k}
+\end{matrix}
+\right]+
+\left[
+\begin{matrix}
+    \Delta{t}\\
+    0
+\end{matrix}
+\right]\omega_k
+$$
+{{< /rawhtml >}}
+
+{{< rawhtml >}}
+$$
+\theta_k=
+\left[
+\begin{matrix}
+    1 & 0
+\end{matrix}
+\right]
+\left[
+\begin{matrix}
+    \theta_{k}\\
+    \omega_{\text{bias},k}
+\end{matrix}
+\right]
+$$
+{{< /rawhtml >}}
+
+となり，以下のように表現します。
+
+$$
+x_{k+1}=Ax_k+Bu_k+v_k
+$$
+
+$$
+y_k=Cx_k+w_k
+$$
+
+$v_k,\ w_k$はそれぞれシステム雑音と観測雑音です。
+このシステムに対してKalman Filterを適用します。
+
+予測ステップで事前状態推定値$\hat x_{k}^-$と事前誤差共分散行列$P_k^{-}$を更新します。$P_{k-1}$は事後誤差共分散行列，$V$はシステム雑音の共分散行列です。
+
+{{< rawhtml >}}
+$$
+\hat x_{k}^- = A\hat x_{k-1}+Bu_{k-1}
+$$
+{{< /rawhtml >}}
+
+{{< rawhtml >}}
+$$ 
+P^{-}_k = AP_{k-1}A^\text{T}+V
+$$
+{{< /rawhtml >}}
+
+フィルタリングステップではカルマンゲイン$G_k$，状態推定値$\hat x_k$，事後誤差共分散行列$P_k$を更新します。
+$W$は観測雑音の共分散行列です。
+
+{{< rawhtml >}}
+$$
+G_k = \dfrac{P^-_kC^\text{T}}{CP^{-}_kC^\text{T} + W}
+$$
+{{< /rawhtml >}}
+
+{{< rawhtml >}}
+$$
+\hat x_k = \hat x_{k}^- + G_k\{y_k - C\hat x_{k}^-\}
+$$
+{{< /rawhtml >}}
+
+{{< rawhtml >}}
+$$
+P_k = (I - G_kC)P^-_k
+$$
+{{< /rawhtml >}}
+
+推定した$\hat x_k$から$\hat\theta_k$と$\hat\omega_k=\omega_k-\hat\omega_{\text{bias},k}$が求まります。
+
+### 5. 実験結果
 {{< youtube ZBS4nwo4Kak >}}
 
-$z$軸周りの入力$u_z$を考慮して制御に加えると，もう少しふらつきが収まるかと考えています。
-
-今後また更新します。
+ゲインの調整がなかなか難しく，ふらつきがみられます。
+<!-- $z$軸周りの入力$u_z$を制御に加えるのも，ふらつきを収える方法だと考えています。 -->
 
