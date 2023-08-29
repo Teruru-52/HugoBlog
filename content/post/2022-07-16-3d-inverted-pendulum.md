@@ -101,7 +101,7 @@ R_x=\left[
 \right],\quad
 R_y=\left[
 \begin{matrix}
-    \cos\beta& 0 &-\sin\alpha\\
+    \cos\beta& 0 &-\sin\beta\\
     0 & 1 & 0\\
     \sin\beta & 0 & \cos\beta
 \end{matrix}
