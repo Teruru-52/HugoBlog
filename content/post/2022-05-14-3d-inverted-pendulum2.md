@@ -13,6 +13,7 @@ categories:
 状態空間表現を用いて，3次元フライホイール倒立振子を製作します。
 
 <!--more-->
+辺倒立については，[状態空間表現を用いた1次元倒立振子](https://teruru-52.github.io/post/2022-05-12-2d-flywheel-inverted-pendulum/)に記述しています。
 
 [The Cubli: A Reaction Wheel Based 3D Inverted Pendulum](https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Research_DAndrea/Cubli/Cubli_ECC2013.pdf)を参考にしています。
 

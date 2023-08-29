@@ -13,6 +13,7 @@ categories:
 状態空間表現を用いた，1次元フライホイール倒立振子の制御を説明します。
 
 <!--more-->
+点倒立については，[状態空間表現を用いた3次元倒立振子の製作](https://teruru-52.github.io/post/2022-05-14-3d-inverted-pendulum2/)に記述しています。
 
 [3次元フライホイール倒立振子](https://teruru-52.github.io/post/2022-05-14-3d-inverted-pendulum2/)での辺倒立の制御に用います。
 3次元での理論を低次元化したものになります．
