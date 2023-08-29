@@ -23,7 +23,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
   highlightColor = "#183db1"
 
 [Params.logo]
-  subtitle = "ものつくり" # Logo subtitle
+  subtitle = "No control, no life." # Logo subtitle
 
 [Params.sidebar]
   home = "right"   # Configure layout for home page
