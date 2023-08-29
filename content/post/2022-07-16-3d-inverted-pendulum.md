@@ -60,11 +60,81 @@ $k_1,k_2,k_3$はゲインです。姿勢角$\hat\theta_x,\hat\theta_y$とその�
 #### 3.2 入力分配
 入力$u_x,u_y,u_z$を3つのホイールに分配します。センサ座標系$xyz$での入力$u_x,u_y,u_z$をホイール座標$x'y'z'$での各ホイールの入力$u^\prime_{x},u^\prime_{y},u^\prime_{z}$に分配します。
 
+まず，センサ座標系$xyz$とホイール座標系$x'y'z'$を一致させる回転行列$R$を考えます。
+
 {{< rawhtml >}}
 $$
-u_xx+u_yy+u_zz=u^\prime_{x}x'+u^\prime_{y}y'+u^\prime_{z}z'
+\left[
+\begin{matrix}
+    x^\prime\\
+    y^\prime\\
+    -z^\prime\\
+\end{matrix}
+\right]=R
+\left[
+\begin{matrix}
+    x\\
+    y\\
+    z\\
+\end{matrix}
+\right]
+$$
+{{< \rawhtml >}}
+
+$-z^\prime$となっているのは，ホイール座標が左手座標系になっていたためです。考えやすいように$z$軸を反転して，右手座標系で統一します。
+
+この回転は，$y$軸周りに$\beta=\dfrac{\pi}{2}-\cos^{-1}\dfrac{1}{\sqrt{3}}$回転した後，
+回転後の$x^\prime$軸周りに$\alpha=-\dfrac{\pi}{4}$回転させるものになります。
+
+$$
+R=R_xR_y
+$$
+
+{{< rawhtml >}}
+$$
+R_x=\left[
+\begin{matrix}
+    1 & 0 & 0\\
+    0 & \cos\alpha &\sin\alpha\\
+    0 & -\sin\alpha& \cos\alpha
+\end{matrix}
+\right],\quad
+R_y=\left[
+\begin{matrix}
+    \cos\beta& 0 &-\sin\alpha\\
+    0 & 1 & 0\\
+    \sin\beta & 0 & \cos\beta
+\end{matrix}
+\right]
 $$
 {{< /rawhtml >}}
+
+{{< figure src="/posts/2022-07-16-3d-inverted-pendulum/matlab_rotation.jpg">}}
+
+そして，$u^\prime_{x},u^\prime_{y},u^\prime_{z}$を求めます。
+
+{{< rawhtml >}}
+$$
+\left[
+\begin{matrix}
+    u^\prime_{x}\\
+    u^\prime_{y}\\
+    -u^\prime_{z}
+\end{matrix}
+\right]=R
+\left[
+\begin{matrix}
+    u_x\\
+    u_y\\
+    u_z\\
+\end{matrix}
+\right]
+$$
+{{< \rawhtml >}}
+
+<!-- $$
+u_xx+u_yy+u_zz=u^\prime_{x}x'+u^\prime_{y}y'+u^\prime_{z}z'
+$$
 
 $$
 x = \dfrac{-y'-z'+2x'}{\sqrt6}
@@ -76,7 +146,7 @@ $$
 
 $$
 z = -\dfrac{x'+y'+z'}{\sqrt3}
-$$
+$$ -->
 
 より，
 
@@ -92,7 +162,8 @@ $$
 u^\prime_{z} = -\dfrac{1}{\sqrt6}u_x-\dfrac{1}{\sqrt2}u_y-\dfrac{1}{\sqrt3}u_z
 $$
 
-としてホイールに入力します。
+<!-- としてホイールに入力します。 -->
+この回転入力$u'$となるように各ホイールに割り当てます。
 制御周期$10\ \text{ms}$程度で制御しています。
 
 ### 4. Kalman Filter
@@ -214,5 +285,6 @@ $$
 {{< youtube ZBS4nwo4Kak >}}
 
 ゲインの調整がなかなか難しく，ふらつきがみられます。
+ダイナミクスを考えずに瞬間的な入力を考えたので，その影響があるかもしれません。
 <!-- $z$軸周りの入力$u_z$を制御に加えるのも，ふらつきを収える方法だと考えています。 -->
 
