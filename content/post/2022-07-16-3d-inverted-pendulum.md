@@ -66,9 +66,9 @@ $k_1,k_2,k_3$はゲインです。姿勢角$\hat\theta_x,\hat\theta_y$とその�
 $$
 \left[
 \begin{matrix}
-    x^\prime\\
-    y^\prime\\
-    -z^\prime\\
+    x'\\
+    y'\\
+    -z'\\
 \end{matrix}
 \right]=R
 \left[
@@ -79,7 +79,7 @@ $$
 \end{matrix}
 \right]
 $$
-{{< \rawhtml >}}
+{{< /rawhtml >}}
 
 $-z^\prime$となっているのは，ホイール座標が左手座標系になっていたためです。考えやすいように$z$軸を反転して，右手座標系で統一します。
 
@@ -111,15 +111,15 @@ $$
 
 {{< figure src="/posts/2022-07-16-3d-inverted-pendulum/matlab_rotation.jpg">}}
 
-そして，$u^\prime_{x},u^\prime_{y},u^\prime_{z}$を求めます。
+この回転行列から$u^\prime_{x},u^\prime_{y},u^\prime_{z}$を求めます。
 
 {{< rawhtml >}}
 $$
 \left[
 \begin{matrix}
-    u^\prime_{x}\\
-    u^\prime_{y}\\
-    -u^\prime_{z}
+    u'_{x}\\
+    u'_{y}\\
+    -u'_{z}
 \end{matrix}
 \right]=R
 \left[
@@ -130,7 +130,7 @@ $$
 \end{matrix}
 \right]
 $$
-{{< \rawhtml >}}
+{{< /rawhtml >}}
 
 <!-- $$
 u_xx+u_yy+u_zz=u^\prime_{x}x'+u^\prime_{y}y'+u^\prime_{z}z'
@@ -151,7 +151,7 @@ $$ -->
 より，
 
 $$
-u_{x'} = \dfrac{2}{\sqrt6}u_x-\dfrac{1}{\sqrt3}u_z
+u^\prime_{x} = \dfrac{2}{\sqrt6}u_x-\dfrac{1}{\sqrt3}u_z
 $$
 
 $$
@@ -163,7 +163,7 @@ u^\prime_{z} = -\dfrac{1}{\sqrt6}u_x-\dfrac{1}{\sqrt2}u_y-\dfrac{1}{\sqrt3}u_z
 $$
 
 <!-- としてホイールに入力します。 -->
-この回転入力$u'$となるように各ホイールに割り当てます。
+この$u'$となるように各ホイールに割り当てます。
 制御周期$10\ \text{ms}$程度で制御しています。
 
 ### 4. Kalman Filter
