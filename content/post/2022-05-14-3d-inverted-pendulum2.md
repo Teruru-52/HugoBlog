@@ -8,6 +8,8 @@ tags:
   - "倒立振子"
 categories:
   - "技術資料"
+thumbnail:
+    src: "posts/2022-05-14-3d-inverted-pendulum2/cubli_cad.png"
 ---
 
 状態空間表現を用いて，3次元フライホイール倒立振子を製作します。
