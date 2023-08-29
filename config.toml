@@ -8,7 +8,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 
 [Author]
   name = "Teruru"
-  bio = "電子工作、制御、プログラミング（C, C++, Python）によるものつくりをまとめていきます。"
+  bio = "電子工作，制御，プログラミング（C, C++, Python）によるものつくりをまとめていきます。"
   avatar = "img/avatar.jpeg"
 
 [Params]
@@ -35,3 +35,23 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 [Params.widgets]
   recent_num = 5 # Set the number of articles in the "Recent articles" widget
   tags_counter = false # Enable counter for each tag in "Tags" widget (disabled by default)
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+[[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 3
+
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 4
