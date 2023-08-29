@@ -4,7 +4,7 @@ date: 2022-07-22T03:49:43+09:00
 draft: false
 description: センサから取得する地磁気のキャリブレーションをしました。
 tags:
-  - "IMU"
+  - "姿勢推定"
 categories:
   - "技術資料"
 thumbnail:

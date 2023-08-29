@@ -5,7 +5,7 @@ draft: false
 description: Madgwickフィルタでクォータニオンを推定します。
 tags:
   - "制御工学"
-  - "IMU"
+  - "姿勢推定"
 categories:
   - "技術資料"
 thumbnail:

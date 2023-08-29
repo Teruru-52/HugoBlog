@@ -5,7 +5,7 @@ draft: false
 description: 9軸センサに拡張カルマンフィルタ（Extended Kalman Filter:EKF）を適用してクォータニオンを推定します。
 tags:
   - "制御工学"
-  - "IMU"
+  - "姿勢推定"
 categories:
   - "技術資料"
 ---

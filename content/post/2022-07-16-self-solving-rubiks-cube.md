@@ -4,8 +4,9 @@ date: 2022-07-16T19:09:07+09:00
 draft: false
 description: Two-Phase-Algorithmを用いて自動でルービックキューブを揃えるロボットを製作します。
 tags:
-  - "アルゴリズム"
-  - "RASPBERRY PI"
+  - "Rubik's Cube"
+  # - "アルゴリズム"
+  # - "RASPBERRY PI"
 categories:
   - "技術資料"
 thumbnail:

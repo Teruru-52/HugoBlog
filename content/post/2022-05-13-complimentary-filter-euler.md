@@ -5,7 +5,7 @@ draft: false
 description: 6軸IMUと相補フィルタを用いてオイラー角を推定します。
 tags:
   - "制御工学"
-  - "IMU"
+  - "姿勢推定"
 categories:
   - "技術資料"
 ---
