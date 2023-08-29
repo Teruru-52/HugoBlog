@@ -4,7 +4,7 @@ date: 2022-04-20T01:04:53+09:00
 draft: false
 tags:
   - "制御工学"
-  - "クラシックマウス"
+  - "マイクロマウス"
 categories:
   - "技術資料"
 thumbnail:

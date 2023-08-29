@@ -4,7 +4,7 @@ date: 2022-05-08T08:59:53+09:00
 draft: false
 description: Kanayama Control Methodを用いてスラローム走行を設計します。
 tags:
-  - "クラシックマウス"
+  - "マイクロマウス"
   - "制御工学"
 categories:
   - "技術資料"
