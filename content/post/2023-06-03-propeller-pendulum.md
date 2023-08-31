@@ -58,7 +58,7 @@ thumbnail:
 - Madgwick Filter
 - Extended Kalman Filter (EKF)
 
-[Madgwickフィルタでクォータニオンを推定する](Madgwickフィルタでクォータニオンを推定する)・
+[Madgwickフィルタでクォータニオンを推定する](https://teruru-52.github.io/post/2022-05-17-madgwick-filter/)・
 [EKFでクォータニオンを推定する](https://teruru-52.github.io/post/2023-07-19-ekf-quaternion/)
 に記述しています。
 
