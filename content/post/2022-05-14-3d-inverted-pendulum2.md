@@ -9,7 +9,7 @@ tags:
 categories:
   - "技術資料"
 thumbnail:
-    src: "posts/2022-05-14-3d-inverted-pendulum2/cubli_cad.png"
+    src: "posts/2022-05-14-3d-inverted-pendulum2/cubli.jpg"
 ---
 
 状態空間表現を用いて，3次元フライホイール倒立振子を製作します。
@@ -35,9 +35,9 @@ thumbnail:
 | ---- |----|
 |  マイコン(Main Board)  | STM32F405RGT6 |
 |  IMU  |  MPU-6500 × 6 |
-|  BLMD  |  自作 × 3|
+|  BLMD  |  自作 × 3 |
 |  BLDC　|   EC 45 flat (30W) × 3　|
-|  電源  |  Lipo 3S 850mAh  |
+|  電源  |  Lipo 3S 850mAh × 2 |
 
 ### 2. 運動方程式
 物理変数を以下に示します。
