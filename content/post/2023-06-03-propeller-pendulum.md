@@ -12,12 +12,11 @@ thumbnail:
   src: "posts/2023-06-03-propeller-pendulum/pendulum.jpg"
 ---
 
-プロペラを用いた倒立振子を製作しました。
-
 <!--more-->
 
 [Design, Modeling and Control of an Omni-Directional Aerial Vehicle ](https://flyingmachinearena.org/wp-content/publications/2016/breIEEE16.pdf)を参考にしています。
 
+プロペラを用いた倒立振子を製作しました。
 以下は以前に作成した説明スライドです。
 {{< figure src="/posts/2023-06-03-mft2023/intro.png">}}
 
@@ -70,8 +69,12 @@ thumbnail:
 
 - Linear Quadratic Regulator (LQR) 
 
-実際にはLQRを用いています。
-辺倒立では，状態をピッチ角$\theta$とその速度$\dot\theta$として状態方程式を立て，倒立点近傍で線形化しました。
+状態方程式を求め，線形化してLQRを用いる制御です。
+辺倒立では，状態をピッチ角$\theta$とその速度$\dot\theta$として状態方程式を立て，倒立点近傍で線形化しました。この場合，実質PD制御となります。
+
+- PD制御
+
+実際にはPD制御を用いて辺倒立しています。モデル誤差の影響により上記2つの制御では不安定な場合が多かったため，PD制御でゲインを調整して倒立させました。
 
 ### 5. 推力配分
 姿勢制御で求めたトルク入力を満たすように8つのプロペラ推力に配分します。

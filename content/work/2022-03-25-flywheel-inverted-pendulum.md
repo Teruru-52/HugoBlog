@@ -41,7 +41,7 @@ PID制御で辺倒立しました。
 
 #### 6号機
 [状態空間表現を用いた3次元倒立振子の製作](https://teruru-52.github.io/post/2022-05-14-3d-inverted-pendulum2/)に記述しています。製作中。
-{{< figure src="/posts/2022-05-14-3d-inverted-pendulum2/cubli_cad.png" width="30%">}}
+{{< figure src="/posts/2022-05-14-3d-inverted-pendulum2/cubli.jpg" width="30%">}}
 
 ## 2. プロペラ倒立振子
 [プロペラを用いた倒立振子の製作](https://teruru-52.github.io/post/2023-06-03-propeller-pendulum/)に記述しています。
