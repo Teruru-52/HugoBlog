@@ -89,7 +89,7 @@ cubeincube_color_state = detect_color.ColorState(
 例えば，キューブの中に小さいキューブがあるような状態`cubeincube_color_state`からみた各面が1色のみで構成される状態`normal_color_state`は以下のようになります。
 
 ```python
-solved = State(
+initial = State(
 [5, 1, 0, 4, 6, 2, 3, 7],
 [1, 0, 1, 2, 2, 1, 2, 0],
 [9, 1, 7, 3, 4, 5, 0, 8, 2, 6, 10, 11],
