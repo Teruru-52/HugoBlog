@@ -27,10 +27,11 @@ PID制御で辺倒立しました。
 {{< figure src="/works/pendulum/flywheel_v2.jpg" width="30%">}}
 
 #### 3号機
-画像はないですが，3号機から点倒立に向けて開発を始めました。
+3号機から点倒立に向けて開発を始めました。
+{{< figure src="/works/pendulum/flywheel_v3.jpg" width="30%">}}
 
 #### 4号機
-ブレーキをつけましたが，うまくブレーキがかからなかったため断念。
+3号機から起き上がり倒立用のブレーキが搭載しましたが，うまくブレーキがかからなかったため断念。
 また，点倒立まではできませんでした。
 {{< figure src="/works/pendulum/flywheel_v4.jpg" width="30%">}}
 
