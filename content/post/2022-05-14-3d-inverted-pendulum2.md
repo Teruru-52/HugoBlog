@@ -321,29 +321,23 @@ z = \left[
 $$
 {{< /rawhtml >}}
 
-の形になります。よって，可制御なシステムは
-
-$$
-\dot z_1 = \bar A_1z_1 + \bar B_1\bar u
-$$
-
-となります。
+の形になります。よって，$z_1$は可制御，$z_2$は不可制御になります。
 
 #### 4.2 離散化
 0次ホールドで離散化します。制御周期は$t_s$とします。
 
 $$
-z_{1_{k+1}} = \bar A_{1_d}z_{1_{k}} + \bar B_{1_d}\bar u_k
+z_{1_{k+1}} = \bar A_{1_d}z_{1_{k}} + \bar A_{3_d}z_{2_{k}}+ \bar B_{1_d}\bar u_k
 $$
 
-{{< rawhtml >}}
+<!-- {{< rawhtml >}}
 $$
 \bar A_{1_d}=e^{\bar A_1t_s},\quad \bar B_{1_d} = \int_{0}^{t_s} e^{\bar A_1t}dt\bar B_1
 $$
-{{< /rawhtml >}}
+{{< /rawhtml >}} -->
 
 #### 4.3 最適制御
-離散時間LQRの最適制御を設計します。
+$(\bar A_{1_d}, \bar B_{1_d})$に対して離散時間LQRの最適制御を設計します。
 
 $$\bar u_k = -\bar K_d\bar z_{1_k}$$
 
