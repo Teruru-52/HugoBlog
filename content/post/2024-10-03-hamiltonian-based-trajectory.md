@@ -34,7 +34,7 @@ Fully Actuated Multirotor Vehicles](https://ieeexplore.ieee.org/document/8336503
 $$J=\dfrac{1}{T}\int_0^T\dddot{r}^2(t)dt$$
 
 とします。
-$T$は軌道の終端時刻で，$0\leq t \leq T$です。   
+$T$は軌道の終端時刻であり，$0\leq t \leq T$です。   
 
 ### 2. Hamiltonian
 ここでは，$s=(s_1,s_2,s_3)=(r,\dot{r},\ddot{r})$，$u=\dddot{r}$とします。
