@@ -12,13 +12,13 @@ thumbnail:
   src: "posts/2024-10-03-hamiltonian-based-trajectory/trajectory_rviz.png"
 ---
 
-Pontryaginの最小原理を用いて，Hamiltonianを最小化する軌道を解析的に求めました。
+Pontryaginの最小原理を用いて，2点境界値問題における評価関数を最小化する軌道を解析的に求めました。
 障害物は考慮せず，計算コストを小さくする軌道生成を目的とします。
 
 <!--more-->
 
-[Computationally Efficient Trajectory Generation for
-Fully Actuated Multirotor Vehicles](https://ieeexplore.ieee.org/document/8336503)を参考にしています。
+<!-- [Computationally Efficient Trajectory Generation for
+Fully Actuated Multirotor Vehicles](https://ieeexplore.ieee.org/document/8336503)を参考にしています。 -->
 
 {{< rawhtml >}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -28,19 +28,20 @@ Fully Actuated Multirotor Vehicles](https://ieeexplore.ieee.org/document/8336503
 {{< /rawhtml >}}
 
 ### 1. 評価関数 
-計算コストを下げるために，評価関数は凸関数とします。
-ここでは，評価関数をjerkの2乗の時間平均
+評価関数は凸関数とします。
+ここでは，評価関数をjerk（躍度）の2乗の時間平均
 
-$$J=\dfrac{1}{T}\int_0^T\dddot{r}^2(t)dt$$
+$$J=\dfrac{1}{T}\int_0^T\dddot{x}^2(t)dt$$
 
 とします。
-$T$は軌道の終端時刻であり，$0\leq t \leq T$です。   
+$T$は軌道の終端時刻であり，$0\leq t \leq T$です。 
+この評価関数$J$を最小化する軌道を，Pontryaginの最小原理を用いて求めます。
 
 ### 2. Hamiltonian
-ここでは，$s=(s_1,s_2,s_3)=(r,\dot{r},\ddot{r})$，$u=\dddot{r}$とします。
-ダイナミクスは簡単のために線形とし，対象の物理モデルは考慮しません。
+ここでは，$s=(s_1,s_2,s_3)=(x,\dot{x},\ddot{x})$，$u=\dddot{x}$とします。
+簡単のために線形とし，対象のダイナミクスは考慮しません。
 
-$$\dot{s}=(s_2,s_3,u)$$
+$$\dot{s}=(\dot{s}_1,\dot{s}_2,\dot{s}_3)=(s_2,s_3,u)$$
 
 ステージコストと，随伴変数$\lambda=(\lambda_1,\lambda_2,\lambda_3)$を用いてHamiltonianを表現します。
 
@@ -74,12 +75,12 @@ $$\lambda_3 = \dfrac{1}{T}(-c_1t^2-2c_2t-2c_3)$$
 となります(積分定数は$u^*$を簡潔に書けるように選んでいます)。
 この$\lambda_3$を3の$u$に代入すると，
 
-$$u^*=\dfrac{c_1}{2}t^2+c_2t+c_3$$
+$$u^*=\text{arg min }H(s,u,\lambda)=\dfrac{c_1}{2}t^2+c_2t+c_3$$
 
-となり，この入力$u^*$はHamiltonian $H(s,u,\lambda)$を最小化する入力となります。
+となり，この入力$u^*$は評価関数$J$を最小化する入力となります。
 
 ### 5. 目標軌道を求める
-$u^*$を積分すれば$s_3(=\ddot{r})$，$s_3$を積分すれば$s_2(=\dot{r})$，$s_2$を積分すれば$s_1(=r)$となります。
+$u^*$を積分すれば$s_3(=\ddot{x})$，$s_3$を積分すれば$s_2(=\dot{x})$，$s_2$を積分すれば$s_1(=x)$となります。
 
 $$s_1^*(t)=\dfrac{1}{120}c_1t^5+\dfrac{1}{24}c_2t^4+\dfrac{1}{6}c_3t^3+\dfrac{1}{2}c_4t^2+c_5t+c_6$$
 
@@ -89,10 +90,10 @@ $$s_3^*(t)=\dfrac{1}{6}c_1t^3+\dfrac{1}{2}c_2t^2+c_3t+c_4$$
 
 ### 6. 目標軌道の係数を求める
 初期と終端の条件，軌道時間を与えてあげると，連立方程式を解くだけでパラメータ$c_1\sim c_6$が求まります。
-ここでは例として，ある位置$r_0$での静止状態から，$r_T$への静止状態に遷移することを考えます。
-$$s_1(0)=r_0,\quad s_2(0)=0,\quad s_3(0)=0$$
+ここでは例として，ある位置$x_0$での静止状態から，$x_T$への静止状態に遷移することを考えます。
+$$s_1(0)=x_0,\quad s_2(0)=0,\quad s_3(0)=0$$
 
-$$s_1(T)=r_T,\quad s_2(T)=0,\quad s_3(T)=0$$
+$$s_1(T)=x_T,\quad s_2(T)=0,\quad s_3(T)=0$$
 
 として1.5の方程式を解くと，
 
@@ -106,7 +107,7 @@ c_6
 \begin{bmatrix} 
 0\\ 
 0\\
-r_0
+x_0
 \end{bmatrix}
 $$
 {{< /rawhtml >}}
@@ -123,7 +124,7 @@ c_3
 -360T\\
 60T^2
 \end{bmatrix}
-(r_T-r_0)
+(x_T-x_0)
 $$
 {{< /rawhtml >}}
 
