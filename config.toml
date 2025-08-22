@@ -9,7 +9,7 @@ googleAnalytics = "" # Enable Google Analytics by entering your tracking id
 [Author]
   name = "Teruru"
   bio = "電子工作，制御，プログラミング（C, C++, Python）によるものつくりをまとめていきます。"
-  avatar = "img/avatar.jpeg"
+  avatar = "img/avatar.jpg"
 
 [Params]
   description = "Teruru's Personal blog about everything" # Description of your site

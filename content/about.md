@@ -16,7 +16,7 @@ menu: main
 ## Profile
 Teruru
 
-{{< figure src="/img/avatar2.jpg" width="50%">}}
+{{< figure src="/img/avatar.jpg" width="50%">}}
 
 電子工作，制御，プログラミング（C,C++,Python)によるものつくりを紹介していきます。
 
